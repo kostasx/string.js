@@ -238,6 +238,31 @@ var str = S('  String   \t libraries are   \n\n\t fun\n!  ').collapseWhitespace(
 ```
 
 
+### - consoleLog(msg) ###
+
+Displays the string along with an optional message `msg` in the console and returns the string intact to allow chaining.
+To be used for debugging purposes only on methods that return a String object.
+
+Alias: `print()`
+
+Example:
+
+```javascript
+S('   Some interesting_text to [TEST] here!   ')
+.consoleLog("Original string: ")    // Original string:    Some interesting_text to [TEST] here!   
+.trimLeft()
+.consoleLog("trimLeft: ")           // trimLeft: Some interesting_text to [TEST] here!
+.camelize()
+.consoleLog("camelize(): ")         // camelize(): SomeInterestingTextTo[TEST]Here!
+.stripPunctuation()
+.consoleLog("stripPunctuation(): ") // stripPunctuation(): SomeInterestingTextToTESTHere
+.humanize()
+.consoleLog("humanize(): ")         // humanize(): Some interesting text to test here
+.strip('Some', 'here')
+.consoleLog("strip(): ")            // strip(): interesting text to test
+```
+
+
 ### - contains(ss) ###
 
 Returns true if the string contains `ss`.

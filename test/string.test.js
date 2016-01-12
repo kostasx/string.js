@@ -104,6 +104,13 @@
       })
     })
 
+    describe('- consoleLog()', function() {
+      it('should output the string using the console.log function along with an optional message and return the string intact', function() {
+        T (S('JavaScript is one of the best languages!').consoleLog().s === 'JavaScript is one of the best languages!' );
+        T (S('JavaScript is one of the best languages!').consoleLog('Testing consoleLog method with message: ').s === 'JavaScript is one of the best languages!' );
+      })
+    })
+
     describe('- contains(substring)', function() {
       it('should return true if the string contains the specified input string', function() {
         T (S('JavaScript is one of the best languages!').contains('one'));
@@ -398,6 +405,13 @@
         var lines = (S('"a\na","b","c"\n"a", """b\nb", "a"').parseCSV(',', '"', '"', '\n'));
         ARY_EQ(lines[0], [ 'a\na', 'b', 'c' ]);
         ARY_EQ(lines[1], [ 'a', '"b\nb', 'a' ]);
+      })
+    })
+
+    describe('- print()', function() {
+      it('should output the string using the console.log function along with an optional message and return the string intact', function() {
+        T (S('JavaScript is one of the best languages!').print().s === 'JavaScript is one of the best languages!' );
+        T (S('JavaScript is one of the best languages!').print('Testing consoleLog method with message: ').s === 'JavaScript is one of the best languages!' );
       })
     })
 
